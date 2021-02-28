@@ -63,6 +63,8 @@ public class AdminServiceImpl implements AdminService {
 		HttpEntity<String> request = new HttpEntity<>(code);
 		InstanceInfo instance = eurekaClient.getNextServerFromEureka("orders", false);
 		restTemplate.postForObject(instance.getHomePageUrl() + url, request, null);
+		restTemplate.postForObject(instance.getHomePageUrl() + "/order/notify}", request, null);
+
 	}
 
 	public EurekaClient getEurekaClient() {
