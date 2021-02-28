@@ -12,22 +12,22 @@ import com.nagarro.nagp.admin.entity.Admin;
 import com.nagarro.nagp.admin.service.AdminService;
 
 @Service
-public class AdminServiceImpl implements AdminService{
+public class AdminServiceImpl implements AdminService {
 
 	@Autowired
 	AdminDao adminDao;
-	
+
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-	
+
 	@Override
 	public List<Admin> getAllAdmins() {
 		return adminDao.getAllAdmins();
-		
+
 	}
 
 	@Override
 	public void addAdmin(Admin admin) {
-		LocalDateTime now = LocalDateTime.now();  
+		LocalDateTime now = LocalDateTime.now();
 		admin.setCreationTime(dtf.format(now));
 		admin.setModifiedTime(dtf.format(now));
 		adminDao.addAdmin(admin);
@@ -39,7 +39,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public boolean updateAdminAdmin admin) {
+	public boolean updateAdmin(Admin admin) {
 		LocalDateTime now = LocalDateTime.now();
 		admin.setModifiedTime(dtf.format(now));
 		return adminDao.updateAdmin(admin);
