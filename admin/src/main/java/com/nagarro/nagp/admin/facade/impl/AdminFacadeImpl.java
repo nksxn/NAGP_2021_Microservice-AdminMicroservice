@@ -13,23 +13,23 @@ import com.nagarro.nagp.admin.service.AdminService;
 
 @Component
 public class AdminFacadeImpl implements AdminFacade {
-	
+
 	@Autowired
 	AdminService adminService;
 
 	@Override
 	public Map<String, Object> getAllAdmins() {
-		
+
 		List<Admin> result = adminService.getAllAdmins();
 		Map<String, Object> responseData = new HashMap<String, Object>();
 		responseData.put("admins", result);
 		return responseData;
-	
+
 	}
 
 	@Override
 	public void addAdmin(Admin admin) {
-		adminService.addAdmin(admin);		
+		adminService.addAdmin(admin);
 	}
 
 	@Override
@@ -42,7 +42,12 @@ public class AdminFacadeImpl implements AdminFacade {
 
 	@Override
 	public boolean updateAdmin(Admin admin) {
-		return adminService.updateAdmin(admin);		
+		return adminService.updateAdmin(admin);
+	}
+
+	@Override
+	public void approveOrder(String code) {
+		adminService.approveOrder(code);
 	}
 
 }

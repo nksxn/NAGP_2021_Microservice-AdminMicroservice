@@ -17,4 +17,6 @@ public interface AdminFacade {
 
 	public boolean updateAdmin(Admin admin);
 
+	public void approveOrder(String code);
+
 }
